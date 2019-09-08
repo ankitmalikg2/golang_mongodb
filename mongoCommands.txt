@@ -1,0 +1,90 @@
+ db.databases.insert([
+{
+   "title": "mysql", 
+   "description": "mysql is sql database",
+   "by": "tutorials point",
+   "url": "google.com",
+   "tags": ["mysql", "database", "SQL"],
+   "likes": 150
+},
+{
+   "title": "cassandra", 
+   "description": "Cassandra is no sql database",
+   "by": "tutorials point",
+   "url": "http://www.tutorialspoint.com",
+   "tags": ["cassandra", "database", "NoSQL"],
+   "likes": 91
+},
+{
+   "title": "Oracle", 
+   "description": "Oracle is sql database",
+   "by": "tutorials point",
+   "url": "http://www.tutorialspoint.com",
+   "tags": ["oracle", "database", "SQL"],
+   "likes": 55
+},
+{
+   "title": "Postgre", 
+   "description": "MongoDB is no sql database",
+   "by": "tutorials point",
+   "url": "http://www.tutorialspoint.com",
+   "tags": ["postgre", "database", "NoSQL"],
+   "likes": 33
+}
+]);
+
+db.mycol.insert([
+{
+   "title": "MongoDB Overview", 
+   "description": "MongoDB is no sql database",
+   "by_user": "tutorials point",
+   "url": "http://www.tutorialspoint.com",
+   "tags": ["mongodb", "database", "NoSQL"],
+   "likes": 100
+},
+{
+   "title": "NoSQL Overview", 
+   "description": "No sql database is very fast",
+   "by_user": "tutorials point",
+   "url": "http://www.tutorialspoint.com",
+   "tags": ["mongodb", "database", "NoSQL"],
+   "likes": 10
+},
+{
+   "title": "Neo4j Overview", 
+   "description": "Neo4j is no sql database",
+   "by_user": "Neo4j",
+   "url": "http://www.neo4j.com",
+   "tags": ["neo4j", "database", "NoSQL"],
+   "likes": 750
+}
+]);
+
+
+===========================================
+=========== update =======================
+===========================================
+db.databases.update({"title":"mysql"},{$set:{
+   "title": "mysql new"
+}});
+
+//for multiple rows
+db.databases.update({"title":"Oracle"},{$set:{"title":"Oracle 12"}},{multi:true});
+
+db.databases.save({
+	"_id" : ObjectId("5d6f27c02dff75f4ac02960f"),
+	"title" : "rampal"
+}
+);
+
+
+===========================================
+=========== Find =======================
+===========================================
+db.databases.find({},{"title":1,"_id":0}).limit(3).skip(2);
+
+
+===========================================
+=========== Remove =======================
+===========================================
+db.databases.find({});
